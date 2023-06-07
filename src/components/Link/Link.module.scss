@@ -12,6 +12,16 @@
   background-image: url("./assets//Vector.png");
 }
 
+.link_name {
+  text-decoration: none;
+  color: #5558FA;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 0 0 0 6px;
+}
+
 .container:last-child {
   padding-right: 0;
 }

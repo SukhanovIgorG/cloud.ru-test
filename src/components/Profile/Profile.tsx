@@ -3,8 +3,8 @@ import styles from "./Profile.module.scss"
 
 export const Profile = () => {
   return (
-    <div>
-      <div>АИ</div>
+    <div className={styles.container}>
+      <div className={styles.avatar}>АИ</div>
       <div className={styles.info_wrapper}>
         <h1>Иван Иванов</h1>
         <div className={styles.link_wrapper}>
