@@ -1,6 +1,6 @@
 import StepOne from "./StepOne/StepOne"
 import StepTwo from "./StepTwo/StepTwo"
 import StepTree from "./StepTree/StepTree"
-import Profile from "./Profile/Profile"
+import Main from "./Main/Main"
 
-export { StepOne, StepTwo, StepTree, Profile }
+export { StepOne, StepTwo, StepTree, Main }
