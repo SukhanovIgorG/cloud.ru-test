@@ -1,0 +1,17 @@
+.container {
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 17px;
+}
+
+.img {
+  width: 12px;
+  height: 12px;
+  background-image: url("./assets//Vector.png");
+}
+
+.container:last-child {
+  padding-right: 0;
+}

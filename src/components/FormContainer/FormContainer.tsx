@@ -1,8 +1,5 @@
 import styles from "./FormContainer.module.scss"
-
-interface FormContainerProps {
-  children: any
-}
+import { FormContainerProps } from "./formContainerTypes"
 
 export function FormContainer({ children }: FormContainerProps) {
   return <div className={styles.container}>{children}</div>
