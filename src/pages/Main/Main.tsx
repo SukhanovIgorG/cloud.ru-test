@@ -34,7 +34,7 @@ export default function Main() {
     <div className={styles.container}>
       <Profile></Profile>
       <form className={styles.form_main} onSubmit={handleSubmit(onSubmit)}>
-        <Input
+        {/* <Input
           name="tell"
           id="tell"
           placeholder="+7 999 999-99-99"
@@ -49,6 +49,22 @@ export default function Main() {
           type="text"
           title="Email"
           references={register}
+        /> */}
+        <input
+          name="tell"
+          id="tell"
+          placeholder="+7 999 999-99-99"
+          type="text"
+          title="Номер телефона"
+          // ref={register}
+        />
+        <input
+          name="email"
+          id="email"
+          placeholder="tim.jennings@example.com"
+          type="text"
+          title="Email"
+          // ref={register}
         />
         <ButtonsGroup>
           <Button
