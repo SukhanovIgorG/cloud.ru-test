@@ -2,6 +2,7 @@ import {
   FormContainer,
   ButtonsGroup,
   Button,
+  LinkButton,
   StepperLine,
   Textarea,
 } from "../../components"
@@ -19,16 +20,18 @@ export default function StepTree() {
         cols={8}
       />
       <ButtonsGroup>
-        <Button
+        <LinkButton
           name="Назад"
           route="/steptwo"
           fill={false}
           id="button-back"
-        ></Button>
+        ></LinkButton>
         <Button
-          name="Назад"
-          route="/steptwo"
-          fill={false}
+          name="Отправить"
+          func={() => {
+            console.log("callback :>> ")
+          }}
+          fill={true}
           id="button-send"
         ></Button>
       </ButtonsGroup>

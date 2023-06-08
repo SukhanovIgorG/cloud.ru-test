@@ -1,5 +1,3 @@
-import logo from "./logo.svg"
-import { Counter } from "./features/counter/Counter"
 import { Route, Routes, HashRouter, BrowserRouter } from "react-router-dom"
 import styles from "./App.module.scss"
 import { Main, StepOne, StepTwo, StepTree } from "./pages"

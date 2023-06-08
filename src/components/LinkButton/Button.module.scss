@@ -21,27 +21,9 @@
   @include button;
   background: #5558fa;
 }
-.contained:hover {
-  @include button;
-  background: #3a3df8;
-}
-.contained:active {
-  @include button;
-  background: #9c3af8;
-}
 
 .outlined {
   @include button;
   background: #ffffff;
   color: #5558fa;
-}
-.outlined:hover {
-  @include button;
-  background: #ffffff;
-  color: #3a3df8;
-}
-.outlined:active {
-  @include button;
-  background: #ffffff;
-  color: 9c3af8;
 }

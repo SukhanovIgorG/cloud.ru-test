@@ -2,6 +2,7 @@ import {
   ButtonsGroup,
   FormContainer,
   Button,
+  LinkButton,
   StepperLine,
   Input,
   Select,
@@ -44,13 +45,18 @@ export default function StepOne() {
         />
       </form>
       <ButtonsGroup>
-        <Button name="Назад" route="/" fill={false} id="button-back"></Button>
-        <Button
+        <LinkButton
+          name="Назад"
+          route="/"
+          fill={false}
+          id="button-back"
+        ></LinkButton>
+        <LinkButton
           name="Далее"
           route="/steptwo"
           fill={true}
           id="button-next"
-        ></Button>
+        ></LinkButton>
       </ButtonsGroup>
     </FormContainer>
   )

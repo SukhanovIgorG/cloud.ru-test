@@ -1,15 +1,15 @@
 import { ButtonProps } from "./buttonTypes"
 import styles from "./Button.module.scss"
+import { Link } from "react-router-dom"
 
-export const Button = ({ name, fill, func, id, type }: ButtonProps) => {
+export const LinkButton = ({ name, fill, route, id }: ButtonProps) => {
   return (
-    <button
-      onClick={func}
+    <Link
+      to={route}
       className={fill ? styles.contained : styles.outlined}
       id={id}
-      type={type}
     >
       {name}
-    </button>
+    </Link>
   )
 }
