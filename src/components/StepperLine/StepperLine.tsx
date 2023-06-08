@@ -1,16 +1,18 @@
+import { useMemo } from "react"
 import { StepperLineProps } from "./stepsLine"
 import styles from "./StepperLine.module.scss"
 
 export const StepperLine = ({ step, total }: StepperLineProps) => {
-  const steps: number[] = Array.from({ length: total }, (_, i) => i)
-
-  console.log(steps)
+  const steps: number[] = useMemo(
+    () => Array.from({ length: total }, (_, i) => i),
+    [total],
+  )
 
   return (
     <div className={styles.container}>
       {steps.map((el, i) => {
         return (
-          <div className={styles.bit}>
+          <div className={styles.bit} key={el * i}>
             {i !== 0 && (
               <div
                 className={step > i ? styles.line_contain : styles.line_outline}

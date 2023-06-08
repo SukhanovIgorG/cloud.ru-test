@@ -11,8 +11,18 @@ export default function StepTwo() {
       <StepperLine step={2} total={3}></StepperLine>
       <p>pages 2222</p>
       <ButtonsGroup>
-        <Button name="Назад" route="/stepone" fill={false}></Button>
-        <Button name="Далее" route="/steptree" fill={true}></Button>
+        <Button
+          name="Назад"
+          route="/stepone"
+          fill={false}
+          id="button-back"
+        ></Button>
+        <Button
+          name="Далее"
+          route="/steptree"
+          fill={true}
+          id="button-next"
+        ></Button>
       </ButtonsGroup>
     </FormContainer>
   )

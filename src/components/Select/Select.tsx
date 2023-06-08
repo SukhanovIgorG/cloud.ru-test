@@ -18,9 +18,13 @@ export const Select = ({
         className={styles.select}
       >
         <option value="">Не выбрано</option>
-        {options.map((option) => {
+        {options.map((option, i) => {
           return (
-            <option value={option} id={`field-sex-option${option}`}>
+            <option
+              value={option}
+              id={`field-sex-option${option}`}
+              key={Math.random() * i}
+            >
               {option}
             </option>
           )

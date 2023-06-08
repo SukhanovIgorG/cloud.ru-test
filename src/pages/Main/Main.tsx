@@ -24,7 +24,12 @@ export default function Main() {
         />
       </form>
       <ButtonsGroup>
-        <Button name="Начать" route="/stepone" fill={true}></Button>
+        <Button
+          name="Начать"
+          route="/stepone"
+          fill={true}
+          id="button-start"
+        ></Button>
       </ButtonsGroup>
     </div>
   )
