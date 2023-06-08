@@ -1,0 +1,16 @@
+.container {
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  width: 900px;
+  min-height: 704px;
+  height: max-content;
+
+  border-radius: 12px;
+  background-color: #ffffff;
+
+  .form_main {
+    width: 400px;
+  }
+}
