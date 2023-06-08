@@ -1,28 +1,40 @@
 import {
   FormContainer,
   ButtonsGroup,
-  Button,
+  LinkButton,
   StepperLine,
+  CheckRadioInput,
+  FieldArray,
 } from "../../components"
 
 export default function StepTwo() {
   return (
     <FormContainer>
       <StepperLine step={2} total={3}></StepperLine>
-      <p>pages 2222</p>
+      <FieldArray />
+      <CheckRadioInput
+        type="checkbox"
+        title="Checkbox group"
+        options={["1", "2", "3"]}
+      />
+      <CheckRadioInput
+        type="radio"
+        title="Radio group"
+        options={["1", "2", "3"]}
+      />
       <ButtonsGroup>
-        <Button
+        <LinkButton
           name="Назад"
           route="/stepone"
           fill={false}
           id="button-back"
-        ></Button>
-        <Button
+        ></LinkButton>
+        <LinkButton
           name="Далее"
           route="/steptree"
           fill={true}
           id="button-next"
-        ></Button>
+        ></LinkButton>
       </ButtonsGroup>
     </FormContainer>
   )

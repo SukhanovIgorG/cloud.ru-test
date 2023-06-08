@@ -1,8 +1,17 @@
 {
-  "name": "vite-template-redux",
-  "private": true,
-  "version": "0.0.0",
+  "name": "cloud.ru-test-sukhanov",
   "type": "module",
+  "version": "1.0.0",
+  "description": "my web site",
+  "main": "index.js",
+  "homepage": "https://SukhanovIgorG.github.io/cloud.ru-test/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SukhanovIgorG/cloud.ru-test.git"
+  },
+  "author": "Sukhanov Igor",
+  "license": "ISC",
+  "private": false,
   "scripts": {
     "dev": "vite",
     "start": "vite",
@@ -17,6 +26,7 @@
     "@reduxjs/toolkit": "^1.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.3",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.11.2",
     "sass": "^1.62.1",

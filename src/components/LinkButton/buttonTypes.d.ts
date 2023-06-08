@@ -1,7 +1,6 @@
 export interface ButtonProps {
   name: string
   fill: boolean
-  func?: () => void
+  route: string
   id: string
-  type: "button" | "submit" | "reset" | undefined
 }
