@@ -5,7 +5,9 @@ export interface InitialStateTypes {
   nickname: string
   sername: string
   sex: "" | "man" | "woman"
-  advantages: []
+  advantages: {
+    field: string
+  }[]
   checkbox: {
     one: string
     two: string

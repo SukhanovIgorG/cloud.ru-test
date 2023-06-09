@@ -25,7 +25,7 @@ export default function StepTwo() {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({
+  } = useForm<InitialStateTypes>({
     defaultValues: {
       advantages,
       checkbox,
@@ -37,19 +37,7 @@ export default function StepTwo() {
     name: "advantages",
     control,
   })
-  type FormValues = {
-    advantages: {
-      field: string
-    }[]
-    checkbox: {
-      one: string
-      two: string
-      tree: string
-    }
-    radio: string
-  }
-
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: InitialStateTypes) => {
     dispatch(setAdvantages(data.advantages))
     dispatch(setCheckbox(data.checkbox))
     dispatch(setRadio(data.radio))

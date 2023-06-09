@@ -16,23 +16,18 @@ import {
 import styles from "./StepTree.module.scss"
 
 export default function StepTree() {
-  const dispatc = useDispatch()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const textarea = useSelector((state: InitialStateTypes) => state.textarea)
 
-  interface FormTypes {
-    textarea: string
-  }
-
-  const { register, handleSubmit } = useForm<FormTypes>({
+  const { register, handleSubmit } = useForm<InitialStateTypes>({
     defaultValues: {
       textarea,
     },
   })
 
-  const onSubmit = (data: FormTypes) => {
-    console.log("data :>> ", data)
-    dispatc(setTextArea(data.textarea))
+  const onSubmit = (data: InitialStateTypes) => {
+    dispatch(setTextArea(data.textarea))
     navigate("/")
   }
 
