@@ -1,4 +1,4 @@
-import { useForm, useFieldArray, useWatch, Control } from "react-hook-form"
+import { useForm, useFieldArray } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { setAdvantages, setCheckbox, setRadio } from "../../rootSlice"
@@ -7,7 +7,6 @@ import {
   ButtonsGroup,
   LinkButton,
   StepperLine,
-  CheckRadioInput,
   Button,
 } from "../../components"
 import type { InitialStateTypes } from "../../StoreTypes"
@@ -51,7 +50,6 @@ export default function StepTwo() {
   }
 
   const onSubmit = (data: FormValues) => {
-    console.log(data)
     dispatch(setAdvantages(data.advantages))
     dispatch(setCheckbox(data.checkbox))
     dispatch(setRadio(data.radio))
@@ -177,53 +175,7 @@ export default function StepTwo() {
               </label>
             </div>
           </fieldset>
-
-          {/* <fieldset className={styles.container_group}>
-            <legend className={styles.legend}>Radio group</legend>
-            <div>
-              <label htmlFor={"field-radio-group-option-1"}>
-                <input
-                  type="radio"
-                  id={"field-radio-group-option-1"}
-                  {...register("radio", { required: true })}
-                  name="1"
-                  value={1}
-                />
-                1
-              </label>
-            </div>
-            <div>
-              <label htmlFor={"field-radio-group-option-1"}>
-                <input
-                  type="radio"
-                  id={"field-radio-group-option-2"}
-                  {...register("radio", { required: true })}
-                  name="2"
-                  value={2}
-                />
-                2
-              </label>
-            </div>
-            <div>
-              <label htmlFor={"field-radio-group-option-3"}>
-                <input
-                  type="radio"
-                  id={"field-radio-group-option-3"}
-                  {...register("radio", { required: true })}
-                  name="3"
-                  value={3}
-                />
-                3
-              </label>
-            </div>
-          </fieldset>
-          */}
         </div>
-        {/* <CheckRadioInput
-          type="radio"
-          title="Radio group"
-          options={["1", "2", "3"]}
-        /> */}
         <ButtonsGroup>
           <LinkButton
             name="Назад"

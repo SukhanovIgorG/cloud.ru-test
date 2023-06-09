@@ -66,4 +66,5 @@ export const {
   setAdvantages,
   setCheckbox,
   setRadio,
+  setTextArea,
 } = rootSlice.actions
