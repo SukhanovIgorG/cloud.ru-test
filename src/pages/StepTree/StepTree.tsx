@@ -11,6 +11,7 @@ import {
   Button,
   LinkButton,
   StepperLine,
+  ModalWindow,
 } from "../../components"
 
 import styles from "./StepTree.module.scss"
@@ -62,6 +63,13 @@ export default function StepTree() {
           ></Button>
         </ButtonsGroup>
       </form>
+      <ModalWindow
+        onClose={() => {
+          console.log("close")
+        }}
+      >
+        <p>ModalWindow</p>
+      </ModalWindow>
     </FormContainer>
   )
 }

@@ -124,42 +124,42 @@ export default function StepTwo() {
           <fieldset className={styles.container_group}>
             <legend className={styles.legend}>Radio group</legend>
             <div>
-              <label htmlFor="pizza">
+              <label htmlFor="radio-1">
                 <input
                   {...register("radio", { required: true })}
                   type="radio"
                   name="radio"
-                  value="Pizza"
+                  value="1"
                   className="form-check-input"
-                  id="pizza"
-                />{" "}
-                Pizza
-              </label>
-            </div>
-            <div>
-              <label htmlFor="burger">
-                <input
-                  {...register("radio", { required: true })}
-                  type="radio"
-                  name="radio"
-                  value="Burger"
-                  className="form-check-input"
-                  id="burger"
-                />{" "}
-                Burger
-              </label>
-            </div>
-            <div>
-              <label htmlFor="fries">
-                <input
-                  {...register("radio", { required: true })}
-                  type="radio"
-                  name="radio"
-                  value="Fries"
-                  className="form-check-input"
-                  id="fries"
+                  id="radio-1"
                 />
-                French Fries
+                1
+              </label>
+            </div>
+            <div>
+              <label htmlFor="radio-2">
+                <input
+                  {...register("radio", { required: true })}
+                  type="radio"
+                  name="radio"
+                  value="2"
+                  className="form-check-input"
+                  id="radio-2"
+                />
+                2
+              </label>
+            </div>
+            <div>
+              <label htmlFor="radio-3">
+                <input
+                  {...register("radio", { required: true })}
+                  type="radio"
+                  name="radio"
+                  value="3"
+                  className="form-check-input"
+                  id="radio-3"
+                />
+                3
               </label>
             </div>
           </fieldset>
