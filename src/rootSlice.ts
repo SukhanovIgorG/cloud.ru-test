@@ -1,15 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { InitialStateTypes } from "./StoreTypes"
+
+const initialState: InitialStateTypes = {
+  email: "",
+  tell: "",
+  name: "",
+  nickname: "",
+  sername: "",
+  sex: "",
+  advantages: [],
+  checkbox: {
+    one: "",
+    two: "",
+    tree: "",
+  },
+  radio: "",
+  textarea: "",
+}
 
 const rootSlice = createSlice({
   name: "root",
-  initialState: {
-    email: "qwe@mail.ru",
-    tell: 79999996677,
-    name: "name",
-    nickname: "nickname",
-    sername: "sername",
-    sex: "sex",
-  },
+  initialState,
   reducers: {
     setEmail: (state, action) => {
       state.email = action.payload
@@ -29,9 +40,30 @@ const rootSlice = createSlice({
     setSex: (state, action) => {
       state.sex = action.payload
     },
+    setAdvantages: (state, action) => {
+      state.advantages = action.payload
+    },
+    setCheckbox: (state, action) => {
+      state.checkbox = action.payload
+    },
+    setRadio: (state, action) => {
+      state.radio = action.payload
+    },
+    setTextArea: (state, action) => {
+      state.textarea = action.payload
+    },
   },
 })
 
 export const reducer = rootSlice.reducer
-export const { setEmail, setTell, setName, setNickName, setSerName, setSex } =
-  rootSlice.actions
+export const {
+  setEmail,
+  setTell,
+  setName,
+  setNickName,
+  setSerName,
+  setSex,
+  setAdvantages,
+  setCheckbox,
+  setRadio,
+} = rootSlice.actions
