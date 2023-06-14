@@ -1,3 +1,4 @@
+import { Status } from "./Status/Status"
 import { FormContainer } from "./FormContainer/FormContainer"
 import { ButtonsGroup } from "./ButtonsGroup/ButtonsGroup"
 import { Button } from "./Button/Button"
@@ -14,4 +15,5 @@ export {
   Textarea,
   LinkButton,
   ModalWindow,
+  Status,
 }

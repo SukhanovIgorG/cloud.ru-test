@@ -1,7 +1,7 @@
 import { useForm, useFieldArray } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { setAdvantages, setCheckbox, setRadio } from "../../rootSlice"
+import { setAdvantages, setCheckbox, setRadio } from "../../store/rootSlice"
 import {
   FormContainer,
   ButtonsGroup,
@@ -9,23 +9,27 @@ import {
   StepperLine,
   Button,
 } from "../../components"
-import type { InitialStateTypes } from "../../StoreTypes"
+import type { InitialStateTypes, formValueTypes } from "../../store/StoreTypes"
 
 import styles from "./StepTwo.module.scss"
 
 export default function StepTwo() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const advantages = useSelector((state: InitialStateTypes) => state.advantages)
-  const checkbox = useSelector((state: InitialStateTypes) => state.checkbox)
-  const radio = useSelector((state: InitialStateTypes) => state.radio)
+  const advantages = useSelector(
+    (state: InitialStateTypes) => state.formValue.advantages,
+  )
+  const checkbox = useSelector(
+    (state: InitialStateTypes) => state.formValue.checkbox,
+  )
+  const radio = useSelector((state: InitialStateTypes) => state.formValue.radio)
 
   const {
     register,
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<InitialStateTypes>({
+  } = useForm<formValueTypes>({
     defaultValues: {
       advantages,
       checkbox,
@@ -37,7 +41,7 @@ export default function StepTwo() {
     name: "advantages",
     control,
   })
-  const onSubmit = (data: InitialStateTypes) => {
+  const onSubmit = (data: formValueTypes) => {
     dispatch(setAdvantages(data.advantages))
     dispatch(setCheckbox(data.checkbox))
     dispatch(setRadio(data.radio))
@@ -126,7 +130,7 @@ export default function StepTwo() {
             <div>
               <label htmlFor="radio-1">
                 <input
-                  {...register("radio", { required: true })}
+                  {...register("radio")}
                   type="radio"
                   name="radio"
                   value="1"
@@ -139,7 +143,7 @@ export default function StepTwo() {
             <div>
               <label htmlFor="radio-2">
                 <input
-                  {...register("radio", { required: true })}
+                  {...register("radio")}
                   type="radio"
                   name="radio"
                   value="2"
@@ -152,7 +156,7 @@ export default function StepTwo() {
             <div>
               <label htmlFor="radio-3">
                 <input
-                  {...register("radio", { required: true })}
+                  {...register("radio")}
                   type="radio"
                   name="radio"
                   value="3"

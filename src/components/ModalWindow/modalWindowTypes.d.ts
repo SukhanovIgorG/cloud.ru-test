@@ -1,6 +1,7 @@
-import * as React from "react"
+import { ReactNode } from "react"
 
 export interface ModalWindowType {
-  onClose: (event: Event) => void
-  children: React.ReactNode
+  onClose: () => void
+  children: ReactNode
+  visible: boolean
 }

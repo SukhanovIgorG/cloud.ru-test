@@ -1,9 +1,10 @@
+import { useCallback, useState } from "react"
 import { useForm } from "react-hook-form"
-import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { setTextArea } from "../../rootSlice"
+import { setTextArea } from "../../store/rootSlice"
+import { submitAction } from "../../store/store.actions"
 
-import type { InitialStateTypes } from "../../StoreTypes"
+import type { InitialStateTypes, formValueTypes } from "../../store/StoreTypes"
 
 import {
   FormContainer,
@@ -11,26 +12,43 @@ import {
   Button,
   LinkButton,
   StepperLine,
-  ModalWindow,
+  Status,
 } from "../../components"
 
 import styles from "./StepTree.module.scss"
+import { useControlModal } from "../hooks"
+import { AnyAction } from "@reduxjs/toolkit"
 
 export default function StepTree() {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const textarea = useSelector((state: InitialStateTypes) => state.textarea)
+  const textarea = useSelector(
+    (state: InitialStateTypes) => state.formValue.textarea,
+  )
+  const full = useSelector((state: InitialStateTypes) => state.formValue)
 
-  const { register, handleSubmit } = useForm<InitialStateTypes>({
+  const [modal, setModal] = useState<"ok" | "error">()
+  const { isOpen, onOpenModal, onCloseModal } = useControlModal()
+
+  const { register, handleSubmit } = useForm<formValueTypes>({
     defaultValues: {
       textarea,
     },
   })
 
-  const onSubmit = (data: InitialStateTypes) => {
-    dispatch(setTextArea(data.textarea))
-    navigate("/")
-  }
+  const onSubmit = useCallback(
+    (data: formValueTypes) => {
+      const dto = {
+        data: full,
+        modal: (status: "ok" | "error") => {
+          setModal(status)
+        },
+      }
+      dispatch(setTextArea(data.textarea))
+      dispatch(submitAction(dto) as unknown as AnyAction)
+      onOpenModal()
+    },
+    [dispatch, full, onOpenModal],
+  )
 
   return (
     <FormContainer>
@@ -63,13 +81,9 @@ export default function StepTree() {
           ></Button>
         </ButtonsGroup>
       </form>
-      <ModalWindow
-        onClose={() => {
-          console.log("close")
-        }}
-      >
-        <p>ModalWindow</p>
-      </ModalWindow>
+      {modal && (
+        <Status status={modal} visible={isOpen} onClose={onCloseModal}></Status>
+      )}
     </FormContainer>
   )
 }
