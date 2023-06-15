@@ -9,7 +9,7 @@ const initialState: InitialStateTypes = {
     name: "",
     nickname: "",
     sername: "",
-    sex: "",
+    sex: " ",
     advantages: [],
     checkbox: {
       one: "",
