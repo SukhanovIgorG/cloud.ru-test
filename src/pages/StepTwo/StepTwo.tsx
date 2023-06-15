@@ -2,6 +2,8 @@ import { useForm, useFieldArray } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { setAdvantages, setCheckbox, setRadio } from "../../store/rootSlice"
+import { joiResolver } from "@hookform/resolvers/joi"
+import { schema } from "./constants"
 import {
   FormContainer,
   ButtonsGroup,
@@ -36,6 +38,7 @@ export default function StepTwo() {
       radio,
     },
     mode: "onBlur",
+    resolver: joiResolver(schema),
   })
   const { fields, append, remove } = useFieldArray({
     name: "advantages",
@@ -77,7 +80,7 @@ export default function StepTwo() {
               </div>
             )
           })}
-
+          <p className={styles.errors}>{errors?.advantages?.message}</p>
           <div
             onClick={() =>
               append({
@@ -125,6 +128,7 @@ export default function StepTwo() {
               </label>
             </div>
           </fieldset>
+          <p className={styles.errors}>{errors?.checkbox?.message}</p>
           <fieldset className={styles.container_group}>
             <legend className={styles.legend}>Radio group</legend>
             <div>
@@ -167,6 +171,7 @@ export default function StepTwo() {
               </label>
             </div>
           </fieldset>
+          <p className={styles.errors}>{errors?.radio?.message}</p>
         </div>
         <ButtonsGroup>
           <LinkButton

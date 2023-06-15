@@ -2,8 +2,7 @@ import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { setNickName, setSerName, setName, setSex } from "../../store/rootSlice"
-import { yupResolver } from "@hookform/resolvers/yup"
-import * as yup from "yup"
+import { joiResolver } from "@hookform/resolvers/joi"
 
 import type { InitialStateTypes, formValueTypes } from "../../store/StoreTypes"
 
@@ -14,27 +13,8 @@ import {
   LinkButton,
   StepperLine,
 } from "../../components"
-
+import { schema } from "./constants"
 import styles from "./StepOne.module.scss"
-
-const schema: any = yup.object({
-  name: yup
-    .string()
-    .max(50)
-    .matches(/^[aA-zZ\s]+$/, { message: "only alpha characters" }),
-  nickname: yup
-    .string()
-    .max(30)
-    .matches(/^[aA-zZ\s]+$/, { message: "only alpha characters" }),
-  sername: yup
-    .string()
-    .max(50)
-    .matches(/^[aA-zZ\s]+$/, { message: "only alpha characters" }),
-  sex: yup
-    .string()
-    .max(50)
-    .matches(/[man | woman | \s ]/, { message: "only man or woman" }),
-})
 
 export default function StepOne() {
   const dispatch = useDispatch()
@@ -48,18 +28,20 @@ export default function StepOne() {
   )
   const sex = useSelector((state: InitialStateTypes) => state.formValue.sex)
 
+  const defaultValuesForm = {
+    nickname,
+    name,
+    sername,
+    sex,
+  }
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<formValueTypes>({
-    defaultValues: {
-      nickname,
-      name,
-      sername,
-      sex,
-    },
-    resolver: yupResolver(schema),
+    defaultValues: defaultValuesForm,
+    resolver: joiResolver(schema),
   })
 
   const onSubmit = (data: formValueTypes) => {

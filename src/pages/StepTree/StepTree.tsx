@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form"
 import { useSelector, useDispatch } from "react-redux"
 import { setTextArea } from "../../store/rootSlice"
 import { submitAction } from "../../store/store.actions"
+import { joiResolver } from "@hookform/resolvers/joi"
+import { schema } from "./constants"
 
 import type { InitialStateTypes, formValueTypes } from "../../store/StoreTypes"
 
@@ -29,10 +31,15 @@ export default function StepTree() {
   const [modal, setModal] = useState<"ok" | "error">()
   const { isOpen, onOpenModal, onCloseModal } = useControlModal()
 
-  const { register, handleSubmit } = useForm<formValueTypes>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<formValueTypes>({
     defaultValues: {
       textarea,
     },
+    resolver: joiResolver(schema),
   })
 
   const onSubmit = useCallback(
@@ -66,6 +73,7 @@ export default function StepTree() {
             className={styles.textarea}
           ></textarea>
         </div>
+        <p className={styles.errors}>{errors?.textarea?.message}</p>
         <ButtonsGroup>
           <LinkButton
             name="Назад"
