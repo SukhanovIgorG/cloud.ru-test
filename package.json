@@ -20,12 +20,15 @@
     "test": "vitest",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "deploy-ghp": "gh-pages -d build",
+    "deploy-server": "npm run build && scp -r ./build/* sukhanovgarik@51.250.4.189:/home/sukhanovgarik/cloud.ru-test"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
     "@reduxjs/toolkit": "^1.8.1",
     "axios": "^1.4.0",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
