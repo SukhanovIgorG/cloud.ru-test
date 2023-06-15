@@ -1,1 +1,0 @@
-export { useControlModal } from "./useControlModal"
