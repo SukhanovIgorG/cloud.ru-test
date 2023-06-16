@@ -7,5 +7,5 @@ export const schema = Joi.object({
     two: Joi.any(),
     tree: Joi.any(),
   }),
-  radio: Joi.number(),
+  radio: Joi.number().allow(""),
 })

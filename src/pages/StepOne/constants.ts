@@ -3,13 +3,13 @@ import * as Joi from "joi"
 const regAlpha = new RegExp(/^[а-яa-z\s]+$/i)
 
 export const schema = Joi.object({
-  name: Joi.string().max(50).pattern(regAlpha).messages({
+  name: Joi.string().allow("").max(50).pattern(regAlpha).messages({
     "string.pattern.base": "only alpha characters",
   }),
-  nickname: Joi.string().max(30).pattern(regAlpha).messages({
+  nickname: Joi.string().allow("").max(30).pattern(regAlpha).messages({
     "string.pattern.base": "only alpha characters",
   }),
-  sername: Joi.string().max(50).pattern(regAlpha).messages({
+  sername: Joi.string().allow("").max(50).pattern(regAlpha).messages({
     "string.pattern.base": "only alpha characters",
   }),
   sex: Joi.string()
