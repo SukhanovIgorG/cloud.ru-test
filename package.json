@@ -2,8 +2,9 @@
   "name": "cloud.ru-test-sukhanov",
   "type": "module",
   "version": "1.0.0",
-  "description": "my web site",
-  "main": "index.js",
+  "description": "cloud.ru-test-sukhanov",
+  "main": "main.tsx",
+  "homepage": "https://SukhanovIgorG.github.io/cloud.ru-test/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SukhanovIgorG/cloud.ru-test.git"
