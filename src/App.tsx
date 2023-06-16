@@ -1,11 +1,11 @@
-import { Route, Routes, HashRouter, BrowserRouter } from "react-router-dom"
+import { Route, Routes, HashRouter } from "react-router-dom"
 import styles from "./App.module.scss"
 import { Main, StepOne, StepTwo, StepTree } from "./pages"
 
 function App() {
   return (
     <div className={styles.App}>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/stepone" element={<StepOne />} />
@@ -13,7 +13,7 @@ function App() {
           <Route path="/steptree" element={<StepTree />} />
           <Route path="/*" element={<></>} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   )
 }

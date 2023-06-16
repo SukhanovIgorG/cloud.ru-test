@@ -2,8 +2,8 @@
   "name": "cloud.ru-test-sukhanov",
   "type": "module",
   "version": "1.0.0",
-  "description": "my web site",
-  "main": "index.js",
+  "description": "cloud.ru-test-sukhanov",
+  "main": "main.tsx",
   "homepage": "https://SukhanovIgorG.github.io/cloud.ru-test/",
   "repository": {
     "type": "git",
@@ -20,17 +20,26 @@
     "test": "vitest",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "deploy-ghp": "gh-pages -d build",
+    "deploy-server": "npm run build && scp -r ./build/* sukhanovgarik@51.250.4.189:/home/sukhanovgarik/cloud.ru-test"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.1.1",
     "@reduxjs/toolkit": "^1.8.1",
+    "axios": "^1.4.0",
+    "gh-pages": "^5.0.0",
+    "joi": "^17.9.2",
+    "joi-react": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
+    "react-input-mask": "^2.0.4",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.11.2",
     "sass": "^1.62.1",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^9.2.0",
@@ -39,6 +48,7 @@
     "@testing-library/user-event": "^14.2.5",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "@types/react-input-mask": "^3.0.2",
     "@types/testing-library__jest-dom": "^5.14.5",
     "@vitejs/plugin-react": "^4.0.0",
     "eslint": "^8.0.0",
